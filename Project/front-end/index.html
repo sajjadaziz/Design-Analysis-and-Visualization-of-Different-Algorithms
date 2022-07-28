@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Algo Project</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <script src="eel.js"></script>
+        <script>
+            var input;
+            function compute(file) {
+                input = file;
+                eel.collect_data(file);
+            }
+
+            function algorithm(name){
+                if(name === "prim")
+                    eel.prim(input);
+                else if(name === "kruskal")
+                    eel.kruskal(input);
+                else if(name === "dijkstra")
+                    eel.dijkstra(input);
+                else if(name === "bellman")
+                    eel.bellman(input);
+                else if(name === "warshall")
+                    eel.warshall(input);
+                else if(name === "clustering")
+                    eel.clustering(input);
+                else if(name === "boruvka")
+                    eel.boruvka(input);
+            }
+
+            eel.expose(show_graph);
+            function show_graph(fig) {
+                document.getElementById("graph").innerHTML='';
+                document.getElementById("cost").innerHTML='';
+                var output = document.getElementById("graph");
+                output.innerHTML = "<img src ="+fig+"/>";
+            }
+
+            eel.expose(show_prim_kruskal_boruvka);
+            function show_prim_kruskal_boruvka(fig, cost) {
+                document.getElementById("graph").innerHTML='';
+                document.getElementById("cost").innerHTML='';
+                var output = document.getElementById("graph");
+                output.innerHTML = "<img src ="+fig+"/>";
+                var output = document.getElementById("cost");
+                output.innerHTML = "<h3>Minimum Cost is : " + cost + "</h3>";
+            }
+
+            eel.expose(show_warshall);
+            function show_warshall(dist, n) {
+                document.getElementById("graph").innerHTML='';
+                document.getElementById("cost").innerHTML='';
+                var output = document.getElementById("graph");
+                output.innerHTML = "<h3>Floyd Warshall Algorithm</h3>";
+                for (let i=0 ; i<n ; i++) {
+                    output.innerHTML += dist[i] + "<br>";
+                }
+            }
+
+            eel.expose(show_clustering);
+            function show_clustering(coefficient, n) {
+                document.getElementById("graph").innerHTML='';
+                document.getElementById("cost").innerHTML='';
+                var output = document.getElementById("graph");
+                output.innerHTML = "<h3>Clustering Coefficient Algorithm<br>Node&emsp;Coefficient</h3>";
+                for (let i=0 ; i<n ; i++) {
+                    output.innerHTML += "&emsp;&emsp;" + i + "&emsp;&emsp;&emsp;&emsp;" + coefficient[i] + "<br>";
+                }
+            }
+
+            eel.expose(show_dij_bell);
+            function show_dij_bell(source, vertices, dist) {
+                document.getElementById("graph").innerHTML='';
+                document.getElementById("cost").innerHTML='';
+                var output = document.getElementById("graph");
+                output.innerHTML = "<h3>Source&emsp;Destination&emsp;Cost</h3>";
+                for (let i=0 ; i<vertices.length ; i++) {
+                    output.innerHTML += "&emsp;&emsp;" + source + "&emsp;&emsp;&emsp;&emsp;&emsp;" + vertices[i] + "&emsp;&emsp;&emsp;&emsp;&emsp;" + dist[i] + "<br>";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="input_files">
+            <button name="input10.txt" onclick="compute(name)">Graph 1</button>
+            <button name="input20.txt" onclick="compute(name)">Graph 2</button>
+            <button name="input30.txt" onclick="compute(name)">Graph 3</button>
+            <button name="input40.txt" onclick="compute(name)">Graph 4</button>
+            <button name="input50.txt" onclick="compute(name)">Graph 5</button>
+            <button name="input60.txt" onclick="compute(name)">Graph 6</button>
+            <button name="input70.txt" onclick="compute(name)">Graph 7</button>
+            <button name="input80.txt" onclick="compute(name)">Graph 8</button>
+            <button name="input90.txt" onclick="compute(name)">Graph 9</button>
+            <button name="input100.txt" onclick="compute(name)">Graph 10</button>
+        </div>
+        <div class="algorithms">
+            <button name="prim" onclick="algorithm(name)">Prims Algorithm</button>
+            <button name="kruskal" onclick="algorithm(name)">Kruskal Algorithm</button>
+            <button name="dijkstra" onclick="algorithm(name)">Dijkstra Algorithm</button>
+            <button name="bellman" onclick="algorithm(name)">Bellman Ford Algorithm</button>
+            <button name="warshall" onclick="algorithm(name)">Floyd Warshall Algorithm</button>
+            <button name="clustering" onclick="algorithm(name)">Clustering Coefficient</button>
+            <button name="boruvka" onclick="algorithm(name)">Borůvka's Algorithm</button>
+        </div>
+        <div id = "graph" class="graph">
+            <p></p>
+        </div>
+        <div id = "cost" class="cost"></div>
+    </body>
+</html>

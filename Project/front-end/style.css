@@ -1,0 +1,77 @@
+@import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+body{
+	margin: 0 auto;
+    padding: 0 auto;
+    font-family: sans-serif;
+    color: rgb(137 85 8);
+	background: no-repeat;
+	background-size: cover;
+}
+.input_files{
+    width: 56.25rem;
+    position: absolute;
+    text-align: center;
+    top: 86.5%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+}
+.algorithms{
+    width: 15.625rem;
+    position: absolute;
+    text-align: center;
+    top: 45%;
+    left: 13%;
+    transform: translate(-50%, -50%);
+}
+.graph_box{
+    width: 15.625rem;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    background-image: none;
+    background-color: white;
+}
+button{
+    width: 12.5rem;
+    background: none;
+    border: .25rem solid black;
+    color: rgb(137 85 8);
+    padding: 0.3125rem;
+    font-size: 1.125rem;
+    cursor: pointer;
+    margin: 0.75rem 0;   
+}
+.a_button{
+    width: 13.4375rem;
+    background: none;
+    border: .25rem solid black;
+    color: rgb(137 85 8);
+    padding: 0.3125rem;
+    font-size: 1.125rem;
+    cursor: pointer;
+    margin: 0.75rem 0;   
+}
+.graph{
+    position: absolute;
+    top: 37.5%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+}
+.cost{
+    position: absolute;
+    text-align: center;
+    top: 66%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+}
+@media(max-width:998px){
+    html{
+        font-size: 55%;
+    }
+}
+@media(max-width:768px){
+    html{
+        font-size: 45%;
+    }
+}
